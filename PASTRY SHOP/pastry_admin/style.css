@@ -1,0 +1,714 @@
+/* =========================================
+   1. SHARED CORE & FONTS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. ADMIN ENTRY PAGE
+   ========================================= */
+.entry-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../pastry_shop/pastry_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* HERO WRAPPER */
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 45px;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.brand-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-solid {
+    background-color: #d4a373;
+    color: white;
+    border: none;
+}
+
+.btn-solid:hover {
+    background-color: #bc8a5f;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #d4a373;
+    color: #d4a373;
+}
+
+.btn-outline:hover {
+    background: #d4a373;
+    color: white;
+}
+
+/* Form Fields */
+.bakery-form input[type="text"],
+.bakery-form input[type="number"] {
+    width: 100%;
+    padding: 14px 25px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(196, 164, 132, 0.4);
+    background: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.bakery-form input:focus {
+    border-color: #c4a484;
+    box-shadow: 0 0 10px rgba(196, 164, 132, 0.2);
+}
+
+/* Side-by-Side Flex Container */
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+}
+
+/* File Upload Customization */
+.file-input-container {
+    text-align: left;
+    margin: 10px 0 25px;
+}
+
+.file-input-container p {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 8px;
+    padding-left: 15px;
+}
+
+input[type="file"] {
+    width: 100%;
+    background: rgba(196, 164, 132, 0.05);
+    border: 2px dashed #c4a484;
+    border-radius: 20px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #c4a484;
+    color: white;
+    border: none;
+    padding: 16px;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(196, 164, 132, 0.3);
+}
+
+.btn-submit:hover {
+    background-color: #b39373;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(196, 164, 132, 0.4);
+}
+
+.form-footer a {
+    display: inline-block;
+    margin-top: 25px;
+    color: #4b3621;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   3. NOTIFICATIONS (Banners)
+   ========================================= */
+.success-banner, .error-msg {
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideDown 0.4s ease-out;
+}
+
+.success-banner {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-msg {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   4. USER DASHBOARD STYLES (Pastry Grid)
+   ========================================= */
+.dashboard-wrapper {
+    padding: 50px 8%;
+}
+
+.pastry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.price {
+    font-size: 1.4rem;
+    color: #c4a484;
+    font-weight: 700;
+}
+/* FORM TITLES */
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #4B3621;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* BACK LINK */
+.back-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    color: #d4a373;
+}
+.bakery-form input[type="password"] {
+    width: 100%;
+    padding: 14px 25px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(196, 164, 132, 0.4);
+    background: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.bakery-form input[type="password"]:focus {
+    border-color: #c4a484;
+    box-shadow: 0 0 10px rgba(196, 164, 132, 0.2);
+}
+/* =========================================
+   ADMIN DASHBOARD
+   ========================================= */
+.admin-dashboard {
+    font-family: 'Poppins', sans-serif;
+    background: #fdf6ec;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-wrapper {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.admin-wrapper h1 {
+    font-family: 'Playfair Display', serif;
+    color: #4B3621;
+    font-size: 2rem;
+}
+
+.admin-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    color: #7a5c3e;
+    margin-top: 40px;
+    border-bottom: 2px solid #f0dcc8;
+    padding-bottom: 8px;
+}
+
+/* SIGN OUT BUTTON */
+.admin-wrapper .btn-delete.signout {
+    float: right;
+    margin-top: -40px;
+}
+
+/* ADD / EDIT FORM */
+.product-form {
+    background: #fff8f0;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(196, 164, 132, 0.15);
+    margin-bottom: 40px;
+    border: 1px solid #f0dcc8;
+}
+
+.product-form input,
+.product-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 25px;
+    border: 1px solid rgba(196, 164, 132, 0.4);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.product-form textarea {
+    border-radius: 16px;
+    resize: vertical;
+}
+
+.product-form input:focus,
+.product-form textarea:focus {
+    border-color: #c4a484;
+    box-shadow: 0 0 8px rgba(196, 164, 132, 0.2);
+}
+
+.product-form .row {
+    display: flex;
+    gap: 15px;
+}
+
+.product-form .row input {
+    flex: 1;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-add     { background: #7cb87e; color: #fff; }
+.btn-add:hover { background: #5a9e5c; }
+
+.btn-edit    { background: #7ab3d4; color: #fff; }
+.btn-edit:hover { background: #5a96bc; }
+
+.btn-archive { background: #e8b87a; color: #fff; }
+.btn-archive:hover { background: #d4a060; }
+
+.btn-restore { background: #b47ad4; color: #fff; }
+.btn-restore:hover { background: #9a5ebc; }
+
+.btn-delete  { background: #d47a7a; color: #fff; }
+.btn-delete:hover { background: #bc5a5a; }
+
+.btn-cancel  { background: #bbb; color: #fff; }
+.btn-cancel:hover { background: #999; }
+
+/* PRODUCT TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(196, 164, 132, 0.1);
+}
+
+th {
+    background: #4B3621;
+    color: #fdf6ec;
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #fdf0e0;
+    vertical-align: middle;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fdf6ec; }
+
+td img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* BADGES */
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-active   { background: #e8f5e9; color: #388E3C; }
+.badge-archived { background: #fff3e0; color: #F57C00; }
+.badge-deleted  { background: #ffebee; color: #c62828; }
+
+.actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* NOTIFICATIONS */
+.success-banner {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.error-msg {
+    background: #ffebee;
+    color: #c62828;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.empty-msg {
+    color: #c4a484;
+    font-style: italic;
+    padding: 15px 0;
+}
+/* ADMIN NAVBAR */
+.admin-nav {
+    background: #4B3621;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.admin-nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: #fdf6ec;
+    font-size: 1.4rem;
+}
+
+.admin-nav-brand span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    background: #d4a373;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.admin-nav-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* ADD PRODUCT SLIDE PANEL */
+.panel-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+
+.panel-overlay.open { display: block; }
+
+.add-panel {
+    position: fixed;
+    top: 0;
+    right: -520px;
+    width: 480px;
+    height: 100vh;
+    background: #fffdf5;
+    z-index: 1000;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+.add-panel.open { right: 0; }
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #f0dcc8;
+    background: #fff8f0;
+}
+
+.panel-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #4B3621;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.panel-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #888;
+    padding: 5px;
+}
+
+.panel-close:hover {
+    background: none;
+    color: #333;
+}
+
+.panel-body {
+    padding: 30px;
+    flex: 1;
+}
+
+.panel-body input,
+.panel-body textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(196, 164, 132, 0.4);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.panel-body textarea {
+    border-radius: 16px;
+    resize: vertical;
+}
+
+.panel-body input:focus,
+.panel-body textarea:focus {
+    border-color: #c4a484;
+    box-shadow: 0 0 8px rgba(196, 164, 132, 0.2);
+}
+
+.panel-body .row {
+    display: flex;
+    gap: 15px;
+}
+
+.panel-body .row input { flex: 1; }
+
+.upload-label {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+.panel-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.panel-actions .btn { flex: 1; text-align: center; padding: 12px; }
+/* FLOATING LABEL */
+.input-group {
+    position: relative;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 18px 15px 6px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(196, 164, 132, 0.4);
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group input:focus {
+    border-color: #c4a484;
+    box-shadow: 0 0 10px rgba(196, 164, 132, 0.2);
+}
+
+.input-group label {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 10px;
+    transform: translateY(0);
+    font-size: 0.72rem;
+    color: #c4a484;
+}
+/* CENTERED FLOATING LABEL (login/register) */
+.input-group {
+    position: relative;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(196, 164, 132, 0.4);
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #555;
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+    text-align: center;
+}
+
+.input-group input:focus {
+    border-color: #c4a484;
+    box-shadow: 0 0 10px rgba(196, 164, 132, 0.2);
+}
